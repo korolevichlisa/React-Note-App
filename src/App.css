@@ -132,9 +132,28 @@ select {
   cursor: pointer;
   pointer-events: none;
 }
-/* Transition */
-/*
-.select:hover::after {
-  transform: scale(1.5);
+
+table {
+  border-collapse: collapse;
+  width: 100%;
 }
-*/
+
+tr{
+  border: 10px solid white;
+
+}
+
+th{
+  background-color: #ca6935;
+  padding: 10px;
+  text-align: center;
+  color: whitesmoke;
+}
+
+ td {
+  text-align: center;
+  padding: 8px;
+  background-color: #e69225;
+}
+
+ 

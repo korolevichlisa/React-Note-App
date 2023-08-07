@@ -4,37 +4,30 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  
-
   const [inputText, setInputText] = useState("");
+  const [inputData, setInputData] = useState("");
   const [inputTextDes, setInputTextDes] = useState("");
   const [todos, setTodos] = useState([]);
   const [category, setCategory] = useState("Task");
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
-  const [note, setNote] = useState(null)
+  const [note, setNote] = useState(null);
 
   useEffect(() => {
-    
-
-  const filterHandler = () => {
-    switch (status) {
-      case "Archive":
-        setFilteredTodos(todos.filter((todo) => todo.completed === true));
-        break;
-      case "Active":
-        setFilteredTodos(todos.filter((todo) => todo.completed === false));
-        break;
-      default:
-        setFilteredTodos(todos);
-        break;
-    }
-    // switch(category){
-    //   case "Task":
-
-    // }
-  };
-  filterHandler()
+    const filterHandler = () => {
+      switch (status) {
+        case "Archive":
+          setFilteredTodos(todos.filter((todo) => todo.completed === true));
+          break;
+        case "Active":
+          setFilteredTodos(todos.filter((todo) => todo.completed === false));
+          break;
+        default:
+          setFilteredTodos(todos);
+          break;
+      }
+    };
+    filterHandler();
   }, [todos, status]);
 
   return (
@@ -51,10 +44,21 @@ function App() {
         category={category}
         setNote={setNote}
         note={note}
-        
+        setInputData={setInputData}
+        inputData={inputData}
       />
-      
-      <TodoList setNote={setNote} setTodos={setTodos} todos={todos} filteredTodos = {filteredTodos}  setInputText={setInputText} setInputTextDes={setInputTextDes}/>
+
+      <TodoList
+        status={status}
+        setNote={setNote}
+        setTodos={setTodos}
+        todos={todos}
+        filteredTodos={filteredTodos}
+        setInputText={setInputText}
+        setInputTextDes={setInputTextDes}
+        setInputData={setInputData}
+        inputData={inputData}
+      />
     </div>
   );
 }

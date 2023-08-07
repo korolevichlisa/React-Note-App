@@ -20,6 +20,7 @@ const Form = ({
     setTodos([
         {
           text: 'Learn React',
+          date: '12/5/2023',
           textDes: 'Learn React and its ecosystem',
           category: "Task",
           completed: false,
@@ -27,6 +28,7 @@ const Form = ({
         },
         {
           text: 'Create a React Component',
+          date: '22/5/2023',
           textDes:
                 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
             category: "Idea",
@@ -34,7 +36,16 @@ const Form = ({
             id: 2,
         },
         {
+          text: 'avocado',
+          date: '2/5/2023',
+          category: 'Random Thought',
+          textDes: 'avocado leaf',
+          completed: false,
+            id: 5,
+          },
+        {
           text: 'Learn Vue',
+          date: '24/5/2023',
           textDes:
                 'Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.',
             category: "Task",
@@ -43,6 +54,7 @@ const Form = ({
         },
         {
           text: 'Learn Angular',
+          date: '2/8/2023',
           textDes:
                 'A wonderful serenity has taken possession of my entire soul.',
                 category: "Task",
@@ -50,15 +62,8 @@ const Form = ({
             id: 4,
         },
         {
-          text: 'Vue Typewriter',
-          textDes:
-                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.',
-            status: 0,
-            completed: false,
-            id: 5,
-        },
-        {
           text: 'Learn jQuery',
+          date: '5/8/2023',
           textDes:
                 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa',
           category: "Task",
@@ -67,6 +72,7 @@ const Form = ({
         },
         {
           text: 'Learn Javascript',
+          date: '12/8/2023',
           textDes:
                 'The European languages are members of the same family. Everyone realizes why a new common language would be desirable: one',
           category: "Task",
@@ -75,7 +81,6 @@ const Form = ({
         },
     ]);
 }, []);
-
 
 
   const inputTextHandler = (e) => {
@@ -87,7 +92,7 @@ const Form = ({
     setInputTextDes(e.target.value);
   };
 
-  const submitTodoHandler = (e) => {
+   const submitTodoHandler = (e) => {
 
     e.preventDefault();
     if(inputText === '' && inputTextDes === ''){
@@ -101,7 +106,7 @@ const Form = ({
         category: category,
         completed: false,
         id: Math.random() * 1000,
-        date: Date.now(),
+        date: new Date().toLocaleDateString({  day: 'numeric', month: 'numeric', year: 'numeric' }),
       },
     ]);
     setInputText("");
